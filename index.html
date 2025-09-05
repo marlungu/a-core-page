@@ -228,8 +228,29 @@
 
         /* Contact Form */
         .contact-form {
-            display: block;
+            display: none;
             margin-top: 2rem;
+        }
+
+        .contact-form.show {
+            display: block;
+        }
+
+        .toggle-form {
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-form:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
         }
 
         @keyframes slideDown {
@@ -535,7 +556,14 @@
                 Share a few lines about your project and timeline.
             </p>
             
-            <form action="https://formsubmit.co/info@archetypecore.com" method="POST" class="contact-form">
+            <button class="toggle-form" onclick="toggleContactForm()">Show Contact Form</button>
+            
+            <form action="https://formsubmit.co/info@archetypecore.com" method="POST" class="contact-form" id="contactForm">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Project Inquiry from Archetype Core Website">
+                <input type="hidden" name="_next" value="https://www.archetypecore.com#contact">
+                <input type="hidden" name="_captcha" value="false">
+                
                 <div class="form-container">
                     <div class="form-header">
                         <h3 class="form-title">Let's discuss your project</h3>
@@ -717,5 +745,21 @@
             }
         }
     </style>
+
+    <script>
+        function toggleContactForm() {
+            const form = document.getElementById('contactForm');
+            const button = document.querySelector('.toggle-form');
+            
+            if (form.classList.contains('show')) {
+                form.classList.remove('show');
+                button.textContent = 'Show Contact Form';
+            } else {
+                form.classList.add('show');
+                button.textContent = 'Hide Contact Form';
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
 </body>
 </html>
