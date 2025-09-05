@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archetype Core - Data · AI · Strategy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background-color: #fafafa;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: white;
+            padding: 4px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .logo-subtitle {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 400;
+        }
+
+        .nav-cta {
+            display: none;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background: #1e40af;
+            color: white;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Services Cards */
+        .services {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-description {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contact h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-description {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: none;
+            margin-top: 2rem;
+            padding: 0;
+            background: transparent;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .contact-form.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .form-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-subtitle {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #1e40af;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+            background: white;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .form-submit:hover {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .toggle-form {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-form:hover {
+            background: linear-gradient(135deg, #1d4ed8, #2563eb);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #1e40af;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h4 {
+            margin: 0 0 0.75rem 0;
+            color: #111827;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .contact-info p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .contact-info a {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #6b7280;
+            font-size: 0.875rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-cta {
+                display: block;
+            }
+
+
+            .cta-buttons {
+                flex-wrap: nowrap;
+            }
+
+            .contact-links {
+                flex-wrap: nowrap;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .main {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .services {
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .contact {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles */
+        .btn:focus,
+        .contact-link:focus {
+            outline: 2px solid #1e40af;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .service-card {
+                border: 2px solid #374151;
+            }
+            
+            .contact {
+                border: 2px solid #374151;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="logo.png" alt="Archetype Core logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-fallback" style="display: none; width: 60px; height: 60px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 8px; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1.5rem; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);">A</div>
+                <div class="logo-text">
+                    <div class="logo-title">Archetype Core</div>
+                    <div class="logo-subtitle">Data · AI · Strategy</div>
+                </div>
+            </div>
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-primary">Start a project</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main" role="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Reliable data systems. Practical AI.</h1>
+            <p class="hero-description">
+                We help organizations build secure, modern data platforms and apply AI with measurable business impact.
+            </p>
+
+            <!-- Services Cards -->
+            <div class="services">
+                <div class="service-card">
+                    <h3 class="service-title">Data Engineering</h3>
+                    <p class="service-description">
+                        Pipelines, warehouses, and governance built to scale.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Applied AI</h3>
+                    <p class="service-description">
+                        LLM integrations and analytics that drive decisions.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Security & Risk</h3>
+                    <p class="service-description">
+                        Identity, compliance, and automation with confidence.
+                    </p>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Get in touch</h2>
+            <p class="contact-description">
+                Share a few lines about your project and timeline.
+            </p>
+            
+            <button class="toggle-form" onclick="toggleContactForm()">Show Contact Form</button>
+            
+            <form class="contact-form" id="contactForm" action="mailto:info@archetypecore.com" method="post" enctype="text/plain">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3 class="form-title">Let's discuss your project</h3>
+                        <p class="form-subtitle">Tell us about your data, AI, or strategy needs</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h4>Prefer to contact us directly?</h4>
+                        <p>
+                            Email: <a href="mailto:info@archetypecore.com">info@archetypecore.com</a><br>
+                            Phone: <a href="tel:5715100194">(571) 510-0194</a>
+                        </p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="John Smith">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="john@company.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" id="company" name="company" class="form-input" placeholder="Your Company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">Project Timeline</label>
+                            <select id="timeline" name="timeline" class="form-select">
+                                <option value="">Select timeline</option>
+                                <option value="immediate">Immediate (< 1 month)</option>
+                                <option value="short">Short-term (1-3 months)</option>
+                                <option value="medium">Medium-term (3-6 months)</option>
+                                <option value="long">Long-term (6+ months)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Project Details *</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your project goals, current challenges, and what you're hoping to achieve with data, AI, or strategy consulting..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Send Project Inquiry</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2025 Archetype Core LLC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleContactForm() {
+            const form = document.getElementById('contactForm');
+            const button = document.querySelector('.toggle-form');
+            
+            if (form.classList.contains('show')) {
+                form.classList.remove('show');
+                button.textContent = 'Show Contact Form';
+            } else {
+                form.classList.add('show');
+                button.textContent = 'Hide Contact Form';
+                // Smooth scroll to form
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
