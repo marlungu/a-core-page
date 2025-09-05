@@ -594,7 +594,7 @@
                         <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your project goals, current challenges, and what you're hoping to achieve with data, AI, or strategy consulting..."></textarea>
                     </div>
                     
-                    <button type="submit" class="form-submit">Send Project Inquiry</button>
+                    <button type="button" class="form-submit" onclick="submitForm(event)">Send Project Inquiry</button>
                 </div>
             </form>
         </section>
@@ -622,14 +622,21 @@
         }
 
         function submitForm(event) {
-            event.preventDefault();
+            if (event) event.preventDefault();
             
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
+            // Validate required fields
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields (Name, Email, and Project Details).');
+                return;
+            }
+            
+            // Get optional fields
+            const company = document.getElementById('company').value.trim();
             const timeline = document.getElementById('timeline').value;
-            const message = document.getElementById('message').value;
             
             // Create email content
             const subject = `Project Inquiry from ${name}`;
@@ -647,8 +654,20 @@ This message was sent from the Archetype Core website contact form.`;
             // Create mailto link
             const mailtoLink = `mailto:info@archetypecore.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
-            // Open email client
-            window.location.href = mailtoLink;
+            try {
+                // Try to open email client
+                window.open(mailtoLink, '_self');
+                
+                // Show success message
+                alert('Opening your email client... If nothing happens, please copy the email address: info@archetypecore.com');
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+            } catch (error) {
+                // Fallback if mailto doesn't work
+                alert(`Please send an email to: info@archetypecore.com\n\nSubject: ${subject}\n\nMessage:\n${body}`);
+            }
         }
     </script>
 </body>
