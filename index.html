@@ -539,64 +539,20 @@
         <section id="contact" class="contact">
             <h2>Get in touch</h2>
             <p class="contact-description">
-                Share a few lines about your project and timeline.
+                Ready to discuss your project? Reach out directly:
             </p>
             
-            <button class="toggle-form" onclick="toggleContactForm()">Show Contact Form</button>
-            
-            <form class="contact-form" id="contactForm">
-                <div class="form-container">
-                    <div class="form-header">
-                        <h3 class="form-title">Let's discuss your project</h3>
-                        <p class="form-subtitle">Tell us about your data, AI, or strategy needs</p>
-                    </div>
-                    
-                    <div class="contact-info">
-                        <h4>Prefer to contact us directly?</h4>
-                        <p>
-                            Email: <a href="mailto:info@archetypecore.com">info@archetypecore.com</a><br>
-                            Phone: <a href="tel:5715100194">(571) 510-0194</a>
-                        </p>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-input" required placeholder="John Smith">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input" required placeholder="john@company.com">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company" class="form-label">Company</label>
-                            <input type="text" id="company" name="company" class="form-input" placeholder="Your Company">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="timeline" class="form-label">Project Timeline</label>
-                            <select id="timeline" name="timeline" class="form-select">
-                                <option value="">Select timeline</option>
-                                <option value="immediate">Immediate (< 1 month)</option>
-                                <option value="short">Short-term (1-3 months)</option>
-                                <option value="medium">Medium-term (3-6 months)</option>
-                                <option value="long">Long-term (6+ months)</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" class="form-label">Project Details *</label>
-                        <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your project goals, current challenges, and what you're hoping to achieve with data, AI, or strategy consulting..."></textarea>
-                    </div>
-                    
-                    <button type="button" class="form-submit" onclick="sendEmail()">Send Project Inquiry</button>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@archetypecore.com">info@archetypecore.com</a></p>
                 </div>
-            </form>
+                
+                <div class="contact-method">
+                    <h3>Phone</h3>
+                    <p><a href="tel:5715100194">(571) 510-0194</a></p>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -605,51 +561,48 @@
         <p>&copy; 2025 Archetype Core LLC. All rights reserved.</p>
     </footer>
 
-    <script>
-        function toggleContactForm() {
-            const form = document.getElementById('contactForm');
-            const button = document.querySelector('.toggle-form');
-            
-            if (form.classList.contains('show')) {
-                form.classList.remove('show');
-                button.textContent = 'Show Contact Form';
-            } else {
-                form.classList.add('show');
-                button.textContent = 'Hide Contact Form';
-                // Smooth scroll to form
-                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+    <style>
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        function sendEmail() {
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const company = document.getElementById('company').value.trim();
-            const timeline = document.getElementById('timeline').value;
-            const message = document.getElementById('message').value.trim();
-            
-            // Basic validation
-            if (!name || !email || !message) {
-                alert('Please fill in your name, email, and project details.');
-                return;
-            }
-            
-            // Create email
-            const subject = `Project Inquiry from ${name}`;
-            const body = `Name: ${name}
-Email: ${email}
-Company: ${company || 'Not specified'}
-Timeline: ${timeline || 'Not specified'}
-
-Project Details:
-${message}`;
-            
-            // Create and click mailto link
-            const mailtoLink = `mailto:info@archetypecore.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
+        .contact-method {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
-    </script>
+        .contact-method:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-method h3 {
+            color: #111827;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-method p {
+            margin: 0;
+        }
+
+        .contact-method a {
+            color: #1e40af;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </body>
 </html>
