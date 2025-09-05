@@ -539,22 +539,62 @@
         <section id="contact" class="contact">
             <h2>Get in touch</h2>
             <p class="contact-description">
-                Ready to discuss your project? Reach out directly:
+                Share a few lines about your project and timeline.
             </p>
             
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <h3>Email</h3>
-                    <p>info@archetypecore.com</p>
-                    <small>Click to copy</small>
+            <form action="https://formsubmit.co/info@archetypecore.com" method="POST" class="contact-form">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3 class="form-title">Let's discuss your project</h3>
+                        <p class="form-subtitle">Tell us about your data, AI, or strategy needs</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h4>Prefer to contact us directly?</h4>
+                        <p>
+                            Email: info@archetypecore.com<br>
+                            Phone: (571) 510-0194
+                        </p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="John Smith">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="john@company.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company</label>
+                            <input type="text" id="company" name="company" class="form-input" placeholder="Your Company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline" class="form-label">Project Timeline</label>
+                            <select id="timeline" name="timeline" class="form-select">
+                                <option value="">Select timeline</option>
+                                <option value="immediate">Immediate (< 1 month)</option>
+                                <option value="short">Short-term (1-3 months)</option>
+                                <option value="medium">Medium-term (3-6 months)</option>
+                                <option value="long">Long-term (6+ months)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Project Details *</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Tell us about your project goals, current challenges, and what you're hoping to achieve with data, AI, or strategy consulting..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Send Project Inquiry</button>
                 </div>
-                
-                <div class="contact-method">
-                    <h3>Phone</h3>
-                    <p>(571) 510-0194</p>
-                    <small>Available 9 AM - 6 PM EST</small>
-                </div>
-            </div>
+            </form>
         </section>
     </main>
 
@@ -564,54 +604,124 @@
     </footer>
 
     <style>
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .contact-form {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .contact-method {
             background: white;
-            padding: 2rem;
             border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .contact-method:hover {
-            transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .contact-method h3 {
+        .form-container {
+            padding: 3rem;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-title {
+            font-size: 2rem;
             color: #111827;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
-        .contact-method p {
-            margin: 0;
-        }
-
-        .contact-method p {
-            color: #1e40af;
-            font-size: 1.125rem;
-            font-weight: 500;
-            cursor: pointer;
-            user-select: all;
-        }
-
-        .contact-method small {
+        .form-subtitle {
             color: #6b7280;
+            font-size: 1.125rem;
+        }
+
+        .contact-info {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .contact-info h4 {
+            color: #111827;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .contact-info p {
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
             font-size: 0.875rem;
         }
 
-        .contact-method:hover p {
-            background: #f0f9ff;
-            padding: 0.5rem;
-            border-radius: 6px;
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: white;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #1e40af;
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .form-submit {
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
         }
     </style>
 </body>
