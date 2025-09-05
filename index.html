@@ -544,7 +544,7 @@
             
             <button class="toggle-form" onclick="toggleContactForm()">Show Contact Form</button>
             
-            <form class="contact-form" id="contactForm" action="mailto:info@archetypecore.com" method="post" enctype="text/plain">
+            <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
                 <div class="form-container">
                     <div class="form-header">
                         <h3 class="form-title">Let's discuss your project</h3>
@@ -619,6 +619,36 @@
                 // Smooth scroll to form
                 form.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const timeline = document.getElementById('timeline').value;
+            const message = document.getElementById('message').value;
+            
+            // Create email content
+            const subject = `Project Inquiry from ${name}`;
+            const body = `Name: ${name}
+Email: ${email}
+Company: ${company || 'Not specified'}
+Timeline: ${timeline || 'Not specified'}
+
+Project Details:
+${message}
+
+---
+This message was sent from the Archetype Core website contact form.`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:info@archetypecore.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
         }
     </script>
 </body>
