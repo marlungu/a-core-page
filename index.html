@@ -564,7 +564,7 @@
                 </div>
             </div>
             <div class="nav-cta">
-                <a href="#contact" class="btn btn-primary">Start a project</a>
+                <a href="#contact" class="btn btn-primary" onclick="openContactForm(event)">Start a project</a>
             </div>
         </div>
     </nav>
@@ -794,6 +794,23 @@
                 contactInfo.style.display = 'none';
                 button.textContent = 'Get in touch';
             }
+        }
+
+        function openContactForm(event) {
+            event.preventDefault();
+            
+            // First show the contact info
+            const contactInfo = document.getElementById('contactInfo');
+            const button = document.querySelector('.contact-toggle-btn');
+            
+            contactInfo.style.display = 'flex';
+            button.textContent = 'Hide contact info';
+            
+            // Then scroll to the contact section
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
         }
     </script>
 </body>
