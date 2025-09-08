@@ -622,16 +622,15 @@
                 <div class="contact-method">
                     <h3>Email us directly</h3>
                     <p class="contact-email">
-                        <a href="mailto:info@archetypecore.com?subject=Project%20Inquiry&body=Hello%2C%0A%0AI'm%20interested%20in%20discussing%20a%20project%20with%20Archetype%20Core.%0A%0AProject%20Details%3A%0A%0A%0ATimeline%3A%0A%0A%0ACompany%3A%0A%0A%0AThank%20you%21" 
-                           class="email-link">info@archetypecore.com</a>
+                        <span class="email-display">info@archetypecore.com</span>
                     </p>
-                    <p class="contact-note">Click above to open your email with a pre-written message</p>
+                    <p class="contact-note">Copy the email address above and paste into your email client</p>
                 </div>
                 
                 <div class="contact-method">
                     <h3>Call us</h3>
                     <p class="contact-phone">
-                        <a href="tel:+15715100194" class="phone-link">(571) 510-0194</a>
+                        <span class="phone-display">(571) 510-0194</span>
                     </p>
                     <p class="contact-note">Available for consultations and project discussions</p>
                 </div>
@@ -676,19 +675,25 @@
             font-size: 1.5rem;
         }
 
-        .email-link,
-        .phone-link {
+        .email-display,
+        .phone-display {
             color: #1e40af;
-            text-decoration: none;
             font-size: 1.25rem;
             font-weight: 600;
+            background: #eff6ff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            user-select: all;
+            cursor: pointer;
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
-        .email-link:hover,
-        .phone-link:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
+        .email-display:hover,
+        .phone-display:hover {
+            background: #dbeafe;
+            border-color: #3b82f6;
         }
 
         .contact-note {
