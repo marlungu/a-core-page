@@ -605,12 +605,14 @@
 
         <!-- Contact Section -->
         <section id="contact" class="contact">
-            <h2>Get in touch</h2>
-            <p class="contact-description">
-                Ready to discuss your data, AI, or strategy project? We'd love to hear from you.
-            </p>
+            <div class="contact-toggle-container">
+                <button class="contact-toggle-btn" onclick="toggleContact()">Get in touch</button>
+                <p class="contact-description">
+                    Ready to discuss your data, AI, or strategy project?
+                </p>
+            </div>
             
-            <div class="contact-simple">
+            <div class="contact-simple" id="contactInfo" style="display: none;">
                 <div class="contact-card">
                     <h3>Let's discuss your project</h3>
                     <p class="contact-intro">Send us an email with your project details and we'll get back to you within 24 hours.</p>
@@ -644,10 +646,45 @@
     </footer>
 
     <style>
+        .contact-toggle-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-toggle-btn {
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .contact-toggle-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
         .contact-simple {
             display: flex;
             justify-content: center;
             margin: 3rem 0;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .contact-card {
@@ -745,7 +782,19 @@
     </style>
 
     <script>
-        // No JavaScript needed for simple contact links
+        function toggleContact() {
+            const contactInfo = document.getElementById('contactInfo');
+            const button = document.querySelector('.contact-toggle-btn');
+            
+            if (contactInfo.style.display === 'none') {
+                contactInfo.style.display = 'flex';
+                button.textContent = 'Hide contact info';
+                contactInfo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                contactInfo.style.display = 'none';
+                button.textContent = 'Get in touch';
+            }
+        }
     </script>
 </body>
 </html>
