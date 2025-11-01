@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Archetype Core</title>
+  <meta name="description" content="Archetype Core is an education-first platform exploring the architecture of intelligent systems — data, AI, and automation built for reliability." />
+  <link rel="stylesheet" href="assets/ac-theme.css">
+  <style>
+    /* Minimal layout helpers (theme handles the rest) */
+    .intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    @media (max-width:960px){ .intro-grid{grid-template-columns:1fr} }
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    @media (max-width:1024px){ .grid-4{grid-template-columns:1fr 1fr} }
+    @media (max-width:640px){ .grid-4{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="Archetype Core">
+        <img src="assets/logo.png"
+             onerror="this.onerror=null;this.src='assets/logo.png';"
+             alt="Archetype Core logo" />
+        <div>
+          <strong>Archetype Core</strong><br/>
+          <span class="tag">The Architecture of Intelligent Systems</span>
+        </div>
+      </a>
+      <nav class="links">
+        <a href="learn.html">Learn</a>
+        <a href="coming-soon.html">Courses</a>
+        <a href="coming-soon.html">Tools</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a class="btn primary" href="#subscribe" data-scroll>Join the Blueprint</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (no Join CTA here) -->
+  <section class="hero">
+    <div class="grid-overlay"></div>
+    <div class="container" style="text-align:center">
+      <h1>About Archetype Core</h1>
+      <p>Education at the intersection of data, AI, and automation — built for engineers who think like architects.</p>
+      <div class="actions">
+        <a class="btn ghost" href="learn.html">Explore Lessons</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro (two-column) -->
+  <section>
+    <div class="container intro-grid">
+      <article class="card">
+        <h3>What Archetype Core is</h3>
+        <p class="sub">A technical resource for designing reliable data platforms and applied AI systems.</p>
+        <ul class="list">
+          <li><strong>Education-first:</strong> lessons, diagrams, and frameworks focused on principles — not passing trends.</li>
+          <li><strong>Systems mindset:</strong> architecture and reproducibility over ad-hoc fixes or one-off scripts.</li>
+          <li><strong>Applied integrity:</strong> examples use anonymized or synthetic data to illustrate universal patterns responsibly.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Focus</h3>
+        <p class="sub">Where we spend our time:</p>
+        <ul class="list">
+          <li>Data platforms and warehouse architecture</li>
+          <li>ETL/ELT orchestration and reliability</li>
+          <li>LLM integrations, agents, and workflow design</li>
+          <li>Governance, identity, and observability</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section>
+    <div class="container">
+      <div class="grid-4">
+        <article class="card">
+          <h3>Learn</h3>
+          <p>Free lessons and frameworks for engineers who think in systems.</p>
+          <a class="more" href="learn.html">Explore →</a>
+        </article>
+        <article class="card">
+          <h3>Courses</h3>
+          <p>Structured programs like <em>Building Your First AI System</em>.</p>
+          <a class="more" href="coming-soon.html">View →</a>
+        </article>
+        <article class="card">
+          <h3>Tools</h3>
+          <p>Templates and checklists for architecture, automation, and measurement.</p>
+          <a class="more" href="coming-soon.html">Browse →</a>
+        </article>
+        <article class="card">
+          <h3>Blueprint</h3>
+          <p>Weekly insights — one practical system at a time.</p>
+          <a class="more" href="#subscribe" data-scroll>Join →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section>
+    <div class="container">
+      <article class="card">
+        <h3>Founder</h3>
+        <p class="sub">Hi, I’m <strong>Mariana Lungu</strong> — Data Engineer and systems thinking educator.</p>
+        <p>I design and teach reliable, data-driven architectures with an emphasis on automation, measurement, and clarity. Archetype Core is where engineering meets structure — a hub for frameworks, metrics, and applied intelligence.</p>
+        <p>Content reflects general engineering principles and open frameworks, not proprietary systems. Archetype Core operates independently from any employer or client.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section id="subscribe" aria-labelledby="nl-title">
+    <div class="container">
+      <div class="note">
+        <h3 id="nl-title">Join the Blueprint</h3>
+        <p>Weekly insights — one practical system at a time.</p>
+        <form class="field" id="subscribeForm"
+              action="https://formsubmit.co/ajax/info+subscribers@archetypecore.com"
+              method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Archetype Core: New Blueprint subscriber">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse"
+                 value="Thanks for joining Archetype Core’s Blueprint. You’ll receive concise, actionable insights on data & AI — one system at a time. — Mariana">
+          <input type="email" name="email" id="email" placeholder="you@domain.com" required />
+          <button class="btn primary" type="submit">Subscribe Free</button>
+        </form>
+        <p class="success" id="subscribeMsg">Thanks! You’re on the list. 📬</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container" style="text-align:center">
+      <div class="footer-tagline">Archetype Core</div>
+      <div>The Architecture of Intelligent Systems</div>
+      <div class="small">© 2025 • Designed for builders and data engineers.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll without leaving #subscribe in the URL
+    document.querySelectorAll('[data-scroll]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const t = document.querySelector(e.currentTarget.getAttribute('href'));
+        if(t){ t.scrollIntoView({behavior:'smooth'}); history.replaceState(null,'',location.pathname); }
+      });
+    });
+
+    // AJAX subscribe
+    const form = document.getElementById('subscribeForm');
+    const msg  = document.getElementById('subscribeMsg');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) { msg.style.display = 'block'; form.reset(); }
+        else { alert('If this is your first submission, switch to non-AJAX once to activate FormSubmit, then revert.'); }
+      } catch {
+        alert('Network error. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

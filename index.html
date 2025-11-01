@@ -1,817 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archetype Core - Data · AI · Strategy</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #374151;
-            background-color: #fafafa;
-        }
-
-        /* Navigation */
-        .nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e7eb;
-            z-index: 100;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-image {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            border-radius: 8px;
-            background: white;
-            padding: 4px;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            display: block;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #111827;
-        }
-
-        .logo-subtitle {
-            font-size: 0.875rem;
-            color: #6b7280;
-            font-weight: 400;
-        }
-
-        .nav-cta {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 0.875rem;
-        }
-
-        .btn-primary {
-            background: #1e40af;
-            color: white;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-primary:hover {
-            background: #1d4ed8;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #374151;
-            border: 1px solid #d1d5db;
-        }
-
-        .btn-secondary:hover {
-            background: #f9fafb;
-            border-color: #9ca3af;
-        }
-
-        /* Main Content */
-        .main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        /* Services Cards */
-        .services {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-            transition: all 0.2s ease;
-        }
-
-        .service-card:hover {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .service-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-description {
-            color: #6b7280;
-            font-size: 0.95rem;
-        }
-
-        /* CTA Buttons */
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-
-
-        /* Contact Section */
-        .contact {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .contact h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.75rem;
-        }
-
-        .contact-description {
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            color: #1e40af;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .contact-link:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
-        }
-
-        /* Contact Form */
-
-        .toggle-form {
-            background: #1e40af;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .toggle-form:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-method {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .contact-method:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-method h3 {
-            color: #111827;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .contact-method p {
-            color: #1e40af;
-            font-size: 1.125rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-method small {
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-
-        .contact-form-message {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid #1e40af;
-        }
-
-        .contact-form-message p {
-            color: #374151;
-            margin-bottom: 1rem;
-        }
-
-        .contact-form-message ul {
-            color: #6b7280;
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .contact-form-message li {
-            margin-bottom: 0.5rem;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .form-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .form-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-subtitle {
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #374151;
-            font-size: 0.875rem;
-        }
-
-        .form-input,
-        .form-textarea,
-        .form-select {
-            width: 100%;
-            padding: 0.875rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 0.875rem;
-            transition: all 0.2s ease;
-            background: #fafafa;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus,
-        .form-select:focus {
-            outline: none;
-            border-color: #1e40af;
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
-            background: white;
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 120px;
-            font-family: inherit;
-        }
-
-        .form-submit {
-            width: 100%;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .form-submit:hover {
-            background: linear-gradient(135deg, #1d4ed8, #2563eb);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .toggle-form {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            color: white;
-            border: none;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-top: 1.5rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .toggle-form:hover {
-            background: linear-gradient(135deg, #1d4ed8, #2563eb);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transform: translateY(-1px);
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #1e40af;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info h4 {
-            margin: 0 0 0.75rem 0;
-            color: #111827;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .contact-info p {
-            margin: 0;
-            color: #6b7280;
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-
-        .contact-info a {
-            color: #1e40af;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #6b7280;
-            font-size: 0.875rem;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 4rem;
-        }
-
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .nav-cta {
-                display: block;
-            }
-
-
-            .cta-buttons {
-                flex-wrap: nowrap;
-            }
-
-            .contact-links {
-                flex-wrap: nowrap;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .main {
-                padding: 0 1rem;
-            }
-
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .services {
-                gap: 1.5rem;
-            }
-
-            .service-card {
-                padding: 1.5rem;
-            }
-
-            .contact {
-                padding: 2rem 1.5rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .form-container {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Focus styles */
-        .btn:focus,
-        .contact-link:focus {
-            outline: 2px solid #1e40af;
-            outline-offset: 2px;
-        }
-
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            .service-card {
-                border: 2px solid #374151;
-            }
-            
-            .contact {
-                border: 2px solid #374151;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Archetype Core — The Architecture of Intelligent Systems</title>
+  <meta name="description" content="Education at the intersection of data, AI, and automation. Learn to think like a systems architect." />
+
+  <!-- Fonts are imported inside ac-theme.css as well, but keeping Inter here is fine -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- NEW: site-wide theme (dark hero + light content + Space Grotesk + Inter) -->
+  <link rel="stylesheet" href="assets/ac-theme.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <div class="logo-section">
-                <img src="logo.png" alt="Archetype Core logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="logo-fallback" style="display: none; width: 60px; height: 60px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 8px; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 1.5rem; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);">A</div>
-                <div class="logo-text">
-                    <div class="logo-title">Archetype Core</div>
-                    <div class="logo-subtitle">Data · AI · Strategy</div>
-                </div>
-            </div>
-            <div class="nav-cta">
-                <a href="#contact" class="btn btn-primary" onclick="openContactForm(event)">Start a project</a>
-            </div>
-        </div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="./" aria-label="Archetype Core">
+      <img src="assets/logo.png"
+           onerror="this.onerror=null;this.src='assets/logo.png';"
+           alt="Archetype Core logo" />
+      <div>
+        <strong>Archetype Core</strong><br/>
+        <span class="tag">The Architecture of Intelligent Systems</span>
+      </div>
+    </a>
+    <nav class="links">
+      <a href="learn.html">Learn</a>
+      <a href="coming-soon.html">Courses</a>
+      <a href="coming-soon.html">Tools</a>
+      <a href="about.html">About</a>
+      <a class="btn primary" href="#subscribe" data-scroll>Join the Blueprint</a>
     </nav>
+  </div>
+</header>
 
-    <!-- Main Content -->
-    <main class="main" role="main">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Reliable data systems. Practical AI.</h1>
-            <p class="hero-description">
-                We help organizations build secure, modern data platforms and apply AI with measurable business impact.
-            </p>
+<!-- HERO (home copy) -->
+<section class="hero">
+  <div class="grid-overlay"></div>
+  <div class="container" style="text-align:center">
+    <h1>Learn to architect intelligent systems.</h1>
+    <p>Education at the intersection of data, AI, and automation — built for engineers who think like architects.</p>
 
-            <!-- Services Cards -->
-            <div class="services">
-                <div class="service-card">
-                    <h3 class="service-title">Data Engineering</h3>
-                    <p class="service-description">
-                        Pipelines, warehouses, and governance built to scale.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <h3 class="service-title">Applied AI</h3>
-                    <p class="service-description">
-                        LLM integrations and analytics that drive decisions.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <h3 class="service-title">Security & Risk</h3>
-                    <p class="service-description">
-                        Identity, compliance, and automation with confidence.
-                    </p>
-                </div>
-            </div>
+    <!-- <div class="actions">
+      <a class="btn ghost" href="learn.html">Explore Lessons</a>
+    </div>
+  </div> -->
+</section>
 
 
-        </section>
+<section>
+  <div class="container">
+    <div class="eyebrow">Learning Paths</div>
+    <div class="grid-3">
+      <article class="card">
+        <h3>System Blueprints</h3>
+        <p>Real-world patterns for pipelines, warehouses, and platforms.</p>
+        <a class="more" href="learn.html">View lessons →</a>
+      </article>
+      <article class="card">
+        <h3>Applied AI & Automation</h3>
+        <p>LLM integrations, agents, and workflow design that work in production.</p>
+        <a class="more" href="learn.html">View lessons →</a>
+      </article>
+      <article class="card">
+        <h3>Governance & Reliability</h3>
+        <p>Identity, compliance, and observability frameworks that scale.</p>
+        <a class="more" href="learn.html">View lessons →</a>
+      </article>
+    </div>
+  </div>
+</section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="contact-toggle-container">
-                <button class="contact-toggle-btn" onclick="toggleContact()">Get in touch</button>
-                <p class="contact-description">
-                    Ready to discuss your data, AI, or strategy project?
-                </p>
-            </div>
-            
-            <div class="contact-simple" id="contactInfo" style="display: none;">
-                <div class="contact-card">
-                    <h3>Let's discuss your project</h3>
-                    <p class="contact-intro">Send us an email with your project details and we'll get back to you within 24 hours.</p>
-                    
-                    <div class="email-contact">
-                        <span class="email-label">Email us at:</span>
-                        <div class="email-address">info@archetypecore.com</div>
-                    </div>
-                    
-                    <div class="contact-suggestions">
-                        <h4>What to include in your email:</h4>
-                        <ul>
-                            <li>Brief description of your project goals</li>
-                            <li>Current challenges you're facing</li>
-                            <li>Preferred timeline for the project</li>
-                            <li>Your company and contact information</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="alt-contact">
-                        <p><strong>Prefer to call?</strong> (571) 510-0194</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<section id="subscribe" aria-labelledby="nl-title">
+  <div class="container">
+    <div class="note">
+      <h3 id="nl-title">Join the Blueprint</h3>
+      <p>Weekly insights — one practical system at a time.</p>
+      <form class="field" id="subscribeForm"
+            action="https://formsubmit.co/ajax/info+subscribers@archetypecore.com"
+            method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Archetype Core: New Blueprint subscriber">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse"
+               value="Thanks for joining Archetype Core’s Blueprint. You’ll receive concise, actionable insights on data & AI — one system at a time. — Mariana">
+        <input type="email" name="email" id="email" placeholder="Enter your email" required />
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <p>&copy; 2025 Archetype Core LLC. All rights reserved.</p>
-    </footer>
+        <button class="btn primary" type="submit">Subscribe Free</button>
+      </form>
+      <p class="success" id="subscribeMsg">Thanks! You’re on the list. 📬</p>
+    </div>
+  </div>
+</section>
 
-    <style>
-        .contact-toggle-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+<footer role="contentinfo">
+  <div class="container" style="text-align:center">
+    <div class="footer-tagline">Archetype Core</div>
+    <div>The Architecture of Intelligent Systems</div>
+    <div class="small">© 2025 • Designed for builders and data engineers.</div>
+  </div>
+</footer>
 
-        .contact-toggle-btn {
-            background: #1e40af;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
-        }
+<script>
+/* Smooth scroll without leaving #subscribe in the URL */
+document.querySelectorAll('[data-scroll]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    const target = document.querySelector(e.currentTarget.getAttribute('href'));
+    if (target){
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      history.replaceState(null, '', location.pathname); // remove hash
+    }
+  });
+});
 
-        .contact-toggle-btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        .contact-simple {
-            display: flex;
-            justify-content: center;
-            margin: 3rem 0;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .contact-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .contact-card h3 {
-            color: #111827;
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-intro {
-            color: #6b7280;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-
-        .email-contact {
-            background: #eff6ff;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2.5rem;
-        }
-
-        .email-label {
-            color: #374151;
-            font-size: 1rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .email-address {
-            color: #1e40af;
-            font-size: 1.5rem;
-            font-weight: 600;
-            user-select: all;
-            cursor: pointer;
-        }
-
-        .contact-suggestions {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .contact-suggestions h4 {
-            color: #111827;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .contact-suggestions ul {
-            color: #4b5563;
-            padding-left: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .contact-suggestions li {
-            margin-bottom: 0.5rem;
-        }
-
-        .alt-contact {
-            color: #6b7280;
-            border-top: 1px solid #e5e7eb;
-            padding-top: 1.5rem;
-        }
-
-        .alt-contact strong {
-            color: #111827;
-        }
-
-        @media (max-width: 768px) {
-            .contact-card {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-
-            .contact-card h3 {
-                font-size: 1.5rem;
-            }
-
-            .email-address {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
-
-    <script>
-        function toggleContact() {
-            const contactInfo = document.getElementById('contactInfo');
-            const button = document.querySelector('.contact-toggle-btn');
-            
-            if (contactInfo.style.display === 'none') {
-                contactInfo.style.display = 'flex';
-                button.textContent = 'Hide contact info';
-                contactInfo.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                contactInfo.style.display = 'none';
-                button.textContent = 'Get in touch';
-            }
-        }
-
-        function openContactForm(event) {
-            event.preventDefault();
-            
-            // First show the contact info
-            const contactInfo = document.getElementById('contactInfo');
-            const button = document.querySelector('.contact-toggle-btn');
-            
-            contactInfo.style.display = 'flex';
-            button.textContent = 'Hide contact info';
-            
-            // Then scroll to the contact section
-            document.getElementById('contact').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }
-    </script>
+/* AJAX subscribe */
+const form = document.getElementById('subscribeForm');
+const msg  = document.getElementById('subscribeMsg');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  try {
+    const res = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      msg.style.display = 'block';
+      form.reset();
+    } else {
+      alert('If this is your first submission, switch to non-AJAX once to activate FormSubmit, then revert.');
+    }
+  } catch (err) {
+    alert('Network error. Please try again.');
+  }
+});
+</script>
 </body>
 </html>

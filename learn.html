@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learn — Archetype Core</title>
+  <meta name="description" content="Free lessons and frameworks at the intersection of data, AI, and automation." />
+  <link rel="stylesheet" href="assets/ac-theme.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="./" aria-label="Archetype Core">
+        <img src="assets/logo.png"
+             onerror="this.onerror=null;this.src='assets/logo.png';"
+             alt="Archetype Core logo" />
+        <div>
+          <strong>Archetype Core</strong><br/>
+          <span class="tag">The Architecture of Intelligent Systems</span>
+        </div>
+      </a>
+      <nav class="links">
+        <a href="learn.html" aria-current="page">Learn</a>
+        <a href="coming-soon.html">Courses</a>
+        <a href="coming-soon.html">Tools</a>
+        <a href="about.html">About</a>
+        <a class="btn primary" href="#subscribe" data-scroll>Join the Blueprint</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (no extra CTA button here) -->
+  <section class="hero">
+    <div class="grid-overlay"></div>
+    <div class="container" style="text-align:center">
+      <h1>Learn</h1>
+      <p>Frameworks, diagrams, and patterns that turn data, AI, and automation into reliable systems.</p>
+    </div>
+  </section>
+
+  <!-- Lessons -->
+  <section>
+    <div class="container">
+      <div class="eyebrow">Latest</div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Building Your First AI System</h3>
+          <p>A structured starter series that walks through an end-to-end AI pipeline.</p>
+          <a class="more" href="coming-soon.html">Preview lessons →</a>
+        </article>
+        <article class="card">
+          <h3>From Data Chaos to Structure</h3>
+          <p>Medallion architecture, lineage, and reliability patterns that scale with your org.</p>
+          <a class="more" href="coming-soon.html">Read more →</a>
+        </article>
+        <article class="card">
+          <h3>Blueprints for Automation</h3>
+          <p>Clean workflow design — from event triggers to agents — built for production.</p>
+          <a class="more" href="coming-soon.html">Explore →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section id="subscribe" aria-labelledby="nl-title">
+    <div class="container">
+      <div class="note">
+        <h3 id="nl-title">Join the Blueprint</h3>
+        <p>Weekly insights — one practical system at a time.</p>
+        <form class="field" id="subscribeForm"
+              action="https://formsubmit.co/ajax/info+subscribers@archetypecore.com"
+              method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Archetype Core: New Blueprint subscriber">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse"
+                 value="Thanks for joining Archetype Core’s Blueprint. You’ll receive concise, actionable insights on data & AI — one system at a time. — Mariana">
+          <input type="email" name="email" id="email" placeholder="you@domain.com" required />
+          <button class="btn primary" type="submit">Subscribe Free</button>
+        </form>
+        <p class="success" id="subscribeMsg">Thanks! You’re on the list. 📬</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container" style="text-align:center">
+      <div class="footer-tagline">Archetype Core</div>
+      <div>The Architecture of Intelligent Systems</div>
+      <div class="small">© 2025 • Designed for builders and data engineers.</div>
+    </div>
+  </footer>
+
+  <script>
+  // Smooth scroll without leaving #subscribe in the URL
+  document.querySelectorAll('[data-scroll]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      const t = document.querySelector(e.currentTarget.getAttribute('href'));
+      if(t){ t.scrollIntoView({behavior:'smooth'}); history.replaceState(null,'',location.pathname); }
+    });
+  });
+
+  // AJAX subscribe
+  const form = document.getElementById('subscribeForm');
+  const msg  = document.getElementById('subscribeMsg');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) { msg.style.display = 'block'; form.reset(); }
+      else { alert('If this is your first submission, switch to non-AJAX once to activate FormSubmit, then revert.'); }
+    } catch {
+      alert('Network error. Please try again.');
+    }
+  });
+  </script>
+</body>
+</html>
