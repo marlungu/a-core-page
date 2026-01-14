@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: "Notes"
+title: "Archetype Core · Notes"
 ---
 
 
