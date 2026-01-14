@@ -1,3 +1,12 @@
+
+# {{ page.title }}
+
+<div class="notes-meta">
+  <span>{{ page.date | date: "%b %d, %Y" }}</span>
+  <span class="dot">•</span>
+  <span>{{ page.tags | join: ", " }}</span>
+</div>
+
 ---
 layout: default
 title: "Issue 001: Centralize your truth before you scale"
