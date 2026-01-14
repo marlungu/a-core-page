@@ -339,7 +339,9 @@ footer{
   font-size:1.03rem;
   line-height:1.75;
 }
-
+.notes-content {
+  padding-bottom: 16px;
+}
 .notes-content ul{padding-left:18px}
 
 .notes-content a{
