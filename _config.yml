@@ -1,4 +1,3 @@
-title: Archetype Core
 markdown: kramdown
 permalink: pretty
 
@@ -6,3 +5,14 @@ collections:
   issues:
     output: true
     permalink: /notes/:name/
+
+defaults:
+  - scope:
+      path: "notes"
+    values:
+      layout: notes
+  - scope:
+      path: ""
+      type: issues
+    values:
+      layout: issue

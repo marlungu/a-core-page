@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} · Archetype Core</title>
+  <link rel="stylesheet" href="/assets/ac-theme.css">
+</head>
+<body>
+
+<header class="notes-top">
+  <div class="notes-top-inner">
+    <a class="notes-eyebrow" href="/notes/">ARCHETYPE CORE · NOTES</a>
+    <nav class="notes-nav">
+      <a href="/">Home</a>
+      <a href="/notes/">Notes</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="notes-shell notes-content">
+  <h1>{{ page.title }}</h1>
+
+  <div class="notes-meta">
+    <span>{{ page.date | date: "%b %d, %Y" }}</span>
+    {% if page.tags %}
+      <span class="dot">•</span>
+      <span>{{ page.tags | join: ", " }}</span>
+    {% endif %}
+  </div>
+
+  {{ content }}
+</main>
+
+</body>
+</html>
