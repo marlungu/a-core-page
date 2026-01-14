@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Learn — Archetype Core</title>
-  <meta name="description" content="Free lessons and frameworks at the intersection of data, AI, and automation." />
+  <meta name="description" content="Learning paths and frameworks for designing reliable data, AI, and automation systems." />
   <link rel="stylesheet" href="assets/ac-theme.css">
 </head>
 <body>
@@ -21,43 +21,71 @@
         </div>
       </a>
       <nav class="links">
+        <a href="/notes/">Notes</a>
         <a href="learn.html" aria-current="page">Learn</a>
-        <a href="coming-soon.html">Courses</a>
-        <a href="coming-soon.html">Tools</a>
         <a href="about.html">About</a>
         <a class="btn primary" href="#subscribe" data-scroll>Join the Blueprint</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero (no extra CTA button here) -->
+  <!-- Hero -->
   <section class="hero">
     <div class="grid-overlay"></div>
     <div class="container" style="text-align:center">
-      <h1>Learn</h1>
-      <p>Frameworks, diagrams, and patterns that turn data, AI, and automation into reliable systems.</p>
+      <h1>Learning Paths</h1>
+      <p>Structured ways of thinking about systems, not courses to rush through.</p>
     </div>
   </section>
 
-  <!-- Lessons -->
-  <section>
+  <!-- Orientation -->
+  <section aria-labelledby="learn-intro">
     <div class="container">
-      <div class="eyebrow">Latest</div>
+      <div class="note" style="max-width:920px;">
+        <h3 id="learn-intro">How learning works here</h3>
+        <p style="margin:0;color:var(--text-2);">
+          Archetype Core is built around architectural decisions and their consequences.
+          These paths are lenses that shape how problems are framed, how tradeoffs are made, and how systems earn trust.
+        </p>
+        <p style="margin:12px 0 0;color:var(--text-2);">
+          New learning material will unfold slowly through Notes and reference builds.
+          If you want the most concrete work today, start with the Notes.
+        </p>
+        <div style="margin-top:16px;">
+          <a class="btn ghost" href="/notes/">Read the Notes →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paths -->
+  <section aria-labelledby="paths-title">
+    <div class="container">
+      <div class="eyebrow" id="paths-title">Paths</div>
+
       <div class="grid-3">
         <article class="card">
-          <h3>Building Your First AI System</h3>
-          <p>A structured starter series that walks through an end-to-end AI pipeline.</p>
-          <a class="more" href="coming-soon.html">Preview lessons →</a>
+          <h3>System Blueprints</h3>
+          <p>Real-world patterns for pipelines, warehouses, and platforms.</p>
+          <p style="margin:10px 0 0;color:var(--text-2);font-size:.92rem;">
+            Status: In development
+          </p>
         </article>
+
         <article class="card">
-          <h3>From Data Chaos to Structure</h3>
-          <p>Medallion architecture, lineage, and reliability patterns that scale with your org.</p>
-          <a class="more" href="coming-soon.html">Read more →</a>
+          <h3>Applied AI & Automation</h3>
+          <p>LLM integrations, agents, and workflow design that work in production.</p>
+          <p style="margin:10px 0 0;color:var(--text-2);font-size:.92rem;">
+            Status: In development
+          </p>
         </article>
+
         <article class="card">
-          <h3>Blueprints for Automation</h3>
-          <p>Clean workflow design — from event triggers to agents — built for production.</p>
-          <a class="more" href="coming-soon.html">Explore →</a>
+          <h3>Governance & Reliability</h3>
+          <p>Identity, compliance, and observability frameworks that scale.</p>
+          <p style="margin:10px 0 0;color:var(--text-2);font-size:.92rem;">
+            Status: In development
+          </p>
         </article>
       </div>
     </div>
@@ -68,7 +96,8 @@
     <div class="container">
       <div class="note">
         <h3 id="nl-title">Join the Blueprint</h3>
-        <p>Weekly insights — one practical system at a time.</p>
+        <p>Weekly insights on system design, governance, and applied AI. One practical idea at a time.</p>
+
         <form class="field" id="subscribeForm"
               action="https://formsubmit.co/ajax/info+subscribers@archetypecore.com"
               method="POST">
@@ -80,6 +109,7 @@
           <input type="email" name="email" id="email" placeholder="you@domain.com" required />
           <button class="btn primary" type="submit">Subscribe Free</button>
         </form>
+
         <p class="success" id="subscribeMsg">Thanks! You’re on the list. 📬</p>
       </div>
     </div>
