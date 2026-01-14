@@ -1,0 +1,8 @@
+title: Archetype Core
+markdown: kramdown
+permalink: pretty
+
+collections:
+  issues:
+    output: true
+    permalink: /notes/:name/
