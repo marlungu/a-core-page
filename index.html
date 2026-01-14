@@ -6,11 +6,9 @@
   <title>Archetype Core — The Architecture of Intelligent Systems</title>
   <meta name="description" content="Education at the intersection of data, AI, and automation. Learn to think like a systems architect." />
 
-  <!-- Fonts are imported inside ac-theme.css as well, but keeping Inter here is fine -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- NEW: site-wide theme (dark hero + light content + Space Grotesk + Inter) -->
   <link rel="stylesheet" href="assets/ac-theme.css">
 </head>
 <body>
@@ -37,48 +35,65 @@
   </div>
 </header>
 
-<!-- HERO (home copy) -->
+<!-- HERO -->
 <section class="hero">
   <div class="grid-overlay"></div>
   <div class="container" style="text-align:center">
     <h1>Learn to architect intelligent systems.</h1>
     <p>Education at the intersection of data, AI, and automation — built for engineers who think like architects.</p>
-
-    <!-- <div class="actions">
-      <a class="btn ghost" href="learn.html">Explore Lessons</a>
-    </div>
-  </div> -->
+  </div>
 </section>
 
-
-<section>
+<!-- LEARNING PATHS -->
+<section aria-labelledby="paths-title">
   <div class="container">
-    <div class="eyebrow">Learning Paths</div>
+    <div class="eyebrow" id="paths-title">Learning Paths</div>
+    <p style="text-align:center;color:var(--text-2);max-width:70ch;margin:0 auto 22px;">
+      Structured ways of thinking about systems, not courses to rush through.
+    </p>
+
     <div class="grid-3">
       <article class="card">
         <h3>System Blueprints</h3>
         <p>Real-world patterns for pipelines, warehouses, and platforms.</p>
-        <a class="more" href="learn.html">View lessons →</a>
+        <a class="more" href="learn.html">Explore path →</a>
       </article>
+
       <article class="card">
         <h3>Applied AI & Automation</h3>
         <p>LLM integrations, agents, and workflow design that work in production.</p>
-        <a class="more" href="learn.html">View lessons →</a>
+        <a class="more" href="learn.html">Explore path →</a>
       </article>
+
       <article class="card">
         <h3>Governance & Reliability</h3>
         <p>Identity, compliance, and observability frameworks that scale.</p>
-        <a class="more" href="learn.html">View lessons →</a>
+        <a class="more" href="learn.html">Explore path →</a>
       </article>
     </div>
   </div>
 </section>
 
+<!-- NOTES BRIDGE -->
+<section aria-labelledby="notes-bridge-title">
+  <div class="container">
+    <div class="eyebrow" id="notes-bridge-title">Notes from the field</div>
+    <p style="text-align:center;color:var(--text-2);max-width:72ch;margin:0 auto 14px;">
+      Short field memos on data systems, governance, and AI. Each note captures a real architectural decision and the tradeoffs behind it.
+    </p>
+    <div style="text-align:center;">
+      <a class="btn ghost" href="/notes/">Read the Notes →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
 <section id="subscribe" aria-labelledby="nl-title">
   <div class="container">
     <div class="note">
       <h3 id="nl-title">Join the Blueprint</h3>
-      <p>Weekly insights — one practical system at a time.</p>
+      <p>Weekly insights on system design, governance, and applied AI. One practical idea at a time.</p>
+
       <form class="field" id="subscribeForm"
             action="https://formsubmit.co/ajax/info+subscribers@archetypecore.com"
             method="POST">
@@ -88,9 +103,9 @@
         <input type="hidden" name="_autoresponse"
                value="Thanks for joining Archetype Core’s Blueprint. You’ll receive concise, actionable insights on data & AI — one system at a time. — Mariana">
         <input type="email" name="email" id="email" placeholder="Enter your email" required />
-
         <button class="btn primary" type="submit">Subscribe Free</button>
       </form>
+
       <p class="success" id="subscribeMsg">Thanks! You’re on the list. 📬</p>
     </div>
   </div>
