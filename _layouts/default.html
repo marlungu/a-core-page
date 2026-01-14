@@ -3,173 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }}</title>
 
-  <style>
-  :root{
-    --ink:#0f172a;
-    --muted:#64748b;
-    --line:#e5e7eb;
-    --bg:#ffffff;
-    --soft:#f8fafc;
-    --accent:#2563eb;
-  }
+  <title>{{ page.title | escape }}</title>
 
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    margin:0;
-  }
-
-  .notes-header{
-    max-width: 920px;
-    margin: 28px auto 0;
-    padding: 0 24px;
-  }
-
-  .notes-eyebrow{
-    display:block;
-    font-size:12px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-    text-decoration:none;
-    padding: 0 0 14px 0;
-    border-bottom:1px solid var(--line);
-  }
-
-  .notes-container{
-    max-width: 920px;
-    margin: 26px auto 88px;
-    padding: 0 24px;
-    line-height: 1.75;
-  }
-
-  /* Titles */
-  h1{
-    font-size: 34px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin: 22px 0 8px 0;
-    font-weight: 650;
-  }
-  .notes-intro{
-    font-size: 16px;
-    color: #475569;
-    margin: 0 0 22px 0;
-    max-width: 70ch;
-  }
-
-  h2{
-   font-size: 16px;
-   margin: 26px 0 10px 0;
-   letter-spacing: .12em;
-   text-transform: uppercase;
-   color: #64748b;
- }
-
-  p{
-    font-size: 17px;
-    margin: 0 0 18px 0;
-    color: #111827;
-  }
-
-  /* Meta line under H1 on issue pages */
-  .notes-meta{
-    margin: 10px 0 26px 0;
-    font-size: 14px;
-    color: var(--muted);
-  }
-  .notes-meta .dot{
-    margin: 0 10px;
-    opacity: .7;
-  }
-
-  /* Links */
-  a{
-    color: var(--accent);
-    text-decoration: none;
-  }
-  a:hover{
-    text-decoration: underline;
-  }
-
-  /* Lists */
-  ul{
-    margin: 10px 0 18px 0;
-    padding-left: 18px;
-  }
-  li{
-    margin: 8px 0;
-  }
-
-  /* Optional: better bullets spacing inside “Why it matters” */
-  ul li::marker{
-    color: #94a3b8;
-  }
-
-  /* A light divider you can use in markdown with --- if needed */
-  hr{
-    border:0;
-    border-top:1px solid var(--line);
-    margin: 28px 0;
-  }
-
-  /* Notes index “Issue cards” (we’ll use this next) */
-  .issue-list{
-    list-style:none;
-    padding:0;
-    margin: 18px 0 0 0;
-  }
-  .issue-list li{
-    margin: 12px 0;
-  }
-  .issue-card{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  padding: 14px 0;
-  border-bottom: 1px solid #e5e7eb;
-  border-radius: 0;
-  background: transparent;
-}
-
-.issue-list li{
-  margin: 0;
-}
-  .issue-num{
-  font-size: 11px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: #94a3b8;
-  margin-top: 4px;
-}
-  .issue-title{
-  font-size: 16px;
-  font-weight: 650;
-  line-height: 1.35;
-  color: #0f172a;
-}
-
-.issue-sub{
-  font-size: 13px;
-  color: #64748b;
-  margin-top: 4px;
-}
-</style>
-
+  <!-- Site-wide theme -->
+  <link rel="stylesheet" href="/assets/ac-theme.css">
 </head>
 
 <body>
 
-  <header class="notes-header">
-    <a href="/notes/" class="notes-eyebrow">Archetype Core · Notes</a>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Archetype Core">
+        <img src="/assets/logo.png" alt="Archetype Core logo" />
+        <div>
+          <strong>Archetype Core</strong><br/>
+          <span class="tag">The Architecture of Intelligent Systems</span>
+        </div>
+      </a>
+
+      <nav class="links">
+        <a href="/learn.html">Learn</a>
+        <a href="/coming-soon.html">Courses</a>
+        <a href="/coming-soon.html">Tools</a>
+        <a href="/about.html">About</a>
+        <a href="/notes/">Notes</a>
+        <a class="btn primary" href="/#subscribe">Join the Blueprint</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="notes-container">
+  <main>
     {{ content }}
   </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="text-align:center">
+      <div class="footer-tagline">Archetype Core</div>
+      <div>The Architecture of Intelligent Systems</div>
+      <div class="small">© 2025 • Designed for builders and data engineers.</div>
+    </div>
+  </footer>
 
 </body>
 </html>

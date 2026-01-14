@@ -261,3 +261,132 @@ footer a{color:#cbd5e1}
   font-size: 14px;
   white-space:nowrap;
 }
+
+/* =========================
+   Notes (Jekyll) styling
+========================= */
+
+.notes-wrap{
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.notes-kicker{
+  font-family: var(--font-heading);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  font-size: .78rem;
+  margin: 18px 0 10px;
+}
+
+.notes-title{
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: clamp(26px, 3vw, 38px);
+  margin: 6px 0 10px;
+}
+
+.notes-subtitle{
+  color: var(--text-2);
+  font-size: 1.05rem;
+  margin: 0 0 26px;
+  max-width: 60ch;
+}
+
+.notes-meta{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  color: var(--text-2);
+  font-size: .92rem;
+  margin: 10px 0 26px;
+}
+
+.notes-meta .dot{
+  opacity: .6;
+}
+
+.notes-divider{
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 26px 0;
+}
+
+.notes-content h2{
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin: 34px 0 10px;
+}
+
+.notes-content p,
+.notes-content li{
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.notes-content ul{
+  padding-left: 18px;
+}
+
+.notes-content a{
+  color: var(--blue-700);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.notes-content a:hover{
+  text-decoration: underline;
+}
+
+/* Issue list card */
+.issue-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.issue-card{
+  display:flex;
+  gap: 18px;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 14px;
+  padding: 18px 18px;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(15,23,42,.05);
+}
+
+.issue-card:hover{
+  border-color: rgba(59,130,246,.35);
+  transform: translateY(-1px);
+  transition: all .2s ease;
+}
+
+.issue-num{
+  font-family: var(--font-heading);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  color: var(--text-2);
+  min-width: 70px;
+}
+
+.issue-title{
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.issue-sub{
+  color: var(--text-2);
+  font-size: .92rem;
+}

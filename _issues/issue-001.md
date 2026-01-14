@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: issue
 title: "Issue 001: Centralize your truth before you scale"
 date: 2026-01-14
 tags: [governance, data-engineering, workflows]
