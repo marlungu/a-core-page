@@ -6,9 +6,9 @@ title: "Archetype Core · Notes"
 
 <p class="notes-subtitle">Short field memos on data systems, governance, security, and the decisions that make systems trustworthy.</p>
 
----
+<hr class="notes-divider" />
 
-## Issues
+## Latest issues
 
 <ul class="issue-list">
   {% assign sorted = site.issues | sort: "date" | reverse %}
