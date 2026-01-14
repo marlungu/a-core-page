@@ -434,3 +434,15 @@ footer a{color:#cbd5e1}
   border-top: 1px solid var(--border);
   margin: 32px 0;
 }
+.notes-back {
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  color: var(--text-2);
+}
+.notes-back a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+.notes-back a:hover {
+  text-decoration: underline;
+}
