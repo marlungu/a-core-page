@@ -43,9 +43,22 @@ body{
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
+html, body { height: 100%; }
+
+body{
+  font-family:var(--font-body);
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .container{max-width:var(--max);margin:0 auto;padding:0 24px}
-
+main { flex: 1; }
 /* =========================
    Header / Nav
    ========================= */
@@ -244,6 +257,8 @@ input[type="email"]{
 /* =========================
    Footer
    ========================= */
+footer { margin-top: auto; }
+
 footer{
   background:var(--slate-900);
   color:#cbd5e1;
