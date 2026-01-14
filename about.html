@@ -4,16 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Archetype Core</title>
-  <meta name="description" content="Archetype Core is an education-first platform exploring the architecture of intelligent systems — data, AI, and automation built for reliability." />
+  <meta name="description" content="Archetype Core is a body of work on designing reliable data, AI, and automation systems — with clarity and intent." />
   <link rel="stylesheet" href="assets/ac-theme.css">
-  <style>
-    /* Minimal layout helpers (theme handles the rest) */
-    .intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
-    @media (max-width:960px){ .intro-grid{grid-template-columns:1fr} }
-    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-    @media (max-width:1024px){ .grid-4{grid-template-columns:1fr 1fr} }
-    @media (max-width:640px){ .grid-4{grid-template-columns:1fr} }
-  </style>
 </head>
 <body>
   <!-- Header -->
@@ -31,76 +23,64 @@
       <nav class="links">
         <a href="/notes/">Notes</a>
         <a href="learn.html">Learn</a>
-        <a href="coming-soon.html">Courses</a>
-        <a href="coming-soon.html">Tools</a>
         <a href="about.html" aria-current="page">About</a>
         <a class="btn primary" href="#subscribe" data-scroll>Join the Blueprint</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero (no Join CTA here) -->
+  <!-- Hero -->
   <section class="hero">
     <div class="grid-overlay"></div>
     <div class="container" style="text-align:center">
-      <h1>About Archetype Core</h1>
-      <p>Education at the intersection of data, AI, and automation — built for engineers who think like architects.</p>
-      <div class="actions">
-        <a class="btn ghost" href="learn.html">Explore Lessons</a>
-      </div>
+      <h1>About</h1>
+      <p>Designing data, AI, and system architecture with clarity and intent.</p>
     </div>
   </section>
 
-  <!-- Intro (two-column) -->
+  <!-- What it is + Focus -->
   <section>
-    <div class="container intro-grid">
-      <article class="card">
+    <div class="container" style="display:flex;gap:24px;flex-wrap:wrap;">
+      <article class="card" style="flex:1 1 520px;">
         <h3>What Archetype Core is</h3>
-        <p class="sub">A technical resource for designing reliable data platforms and applied AI systems.</p>
-        <ul class="list">
-          <li><strong>Education-first:</strong> lessons, diagrams, and frameworks focused on principles — not passing trends.</li>
-          <li><strong>Systems mindset:</strong> architecture and reproducibility over ad-hoc fixes or one-off scripts.</li>
-          <li><strong>Applied integrity:</strong> examples use anonymized or synthetic data to illustrate universal patterns responsibly.</li>
+        <p style="margin:0;color:var(--text-2);">
+          A technical body of work for engineers who want systems that stay reliable as they scale.
+          The focus is not tools or trends, but the architectural decisions underneath them.
+        </p>
+        <ul style="margin:14px 0 0;padding-left:18px;">
+          <li><strong>Education-first:</strong> frameworks, diagrams, and patterns grounded in principles.</li>
+          <li><strong>Systems mindset:</strong> reproducibility over ad-hoc fixes and one-off scripts.</li>
+          <li><strong>Applied integrity:</strong> examples use anonymized or synthetic data when needed.</li>
         </ul>
       </article>
 
-      <article class="card">
+      <article class="card" style="flex:1 1 360px;">
         <h3>Focus</h3>
-        <p class="sub">Where we spend our time:</p>
-        <ul class="list">
+        <p style="margin:0 0 10px;color:var(--text-2);">Where the work concentrates:</p>
+        <ul style="margin:0;padding-left:18px;">
           <li>Data platforms and warehouse architecture</li>
           <li>ETL/ELT orchestration and reliability</li>
-          <li>LLM integrations, agents, and workflow design</li>
+          <li>Applied AI, agents, and workflow design</li>
           <li>Governance, identity, and observability</li>
         </ul>
       </article>
     </div>
   </section>
 
-  <!-- Pillars -->
-  <section>
+  <!-- How to use this site -->
+  <section aria-labelledby="how-title">
     <div class="container">
-      <div class="grid-4">
-        <article class="card">
-          <h3>Learn</h3>
-          <p>Free lessons and frameworks for engineers who think in systems.</p>
-          <a class="more" href="learn.html">Explore →</a>
-        </article>
-        <article class="card">
-          <h3>Courses</h3>
-          <p>Structured programs like <em>Building Your First AI System</em>.</p>
-          <a class="more" href="coming-soon.html">View →</a>
-        </article>
-        <article class="card">
-          <h3>Tools</h3>
-          <p>Templates and checklists for architecture, automation, and measurement.</p>
-          <a class="more" href="coming-soon.html">Browse →</a>
-        </article>
-        <article class="card">
-          <h3>Blueprint</h3>
-          <p>Weekly insights — one practical system at a time.</p>
-          <a class="more" href="#subscribe" data-scroll>Join →</a>
-        </article>
+      <div class="note" style="max-width:920px;">
+        <h3 id="how-title">How to use this site</h3>
+        <p style="margin:0;color:var(--text-2);">
+          Start with <strong>Notes</strong> for the most concrete work.
+          Use <strong>Learn</strong> as the map of how the thinking is organized.
+          Join the <strong>Blueprint</strong> if you want new material delivered consistently.
+        </p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a class="btn ghost" href="/notes/">Read the Notes →</a>
+          <a class="btn ghost" href="learn.html">View Learning Paths →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -108,11 +88,15 @@
   <!-- Founder -->
   <section>
     <div class="container">
-      <article class="card">
+      <article class="card" style="max-width:920px;margin:0 auto;">
         <h3>Founder</h3>
-        <p class="sub">Hi, I’m <strong>Mariana Lungu</strong> — Data Engineer and systems thinking educator.</p>
-        <p>I design and teach reliable, data-driven architectures with an emphasis on automation, measurement, and clarity. Archetype Core is where engineering meets structure — a hub for frameworks, metrics, and applied intelligence.</p>
-        <p>Content reflects general engineering principles and open frameworks, not proprietary systems. Archetype Core operates independently from any employer or client.</p>
+        <p style="margin:0 0 10px;color:var(--text-2);">
+          Hi, I’m <strong>Mariana Lungu</strong> — a Data Engineer focused on systems that are measurable, resilient, and easy to reason about.
+        </p>
+        <p style="margin:0;color:var(--text-2);">
+          Archetype Core is where I publish the frameworks and patterns behind trustworthy systems.
+          The content reflects general engineering principles and open practices, not proprietary systems.
+        </p>
       </article>
     </div>
   </section>
@@ -122,7 +106,7 @@
     <div class="container">
       <div class="note">
         <h3 id="nl-title">Join the Blueprint</h3>
-        <p>Weekly insights — one practical system at a time.</p>
+        <p>Weekly insights on system design, governance, and applied AI. One practical idea at a time.</p>
         <form class="field" id="subscribeForm"
               action="https://formsubmit.co/ajax/info+subscribers@archetypecore.com"
               method="POST">
