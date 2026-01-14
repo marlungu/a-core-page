@@ -6,15 +6,6 @@ tags: [governance, data-engineering, workflows]
 ---
 
 
-# {{ page.title }}
-
-<div class="notes-meta">
-  <span>{{ page.date | date: "%b %d, %Y" }}</span>
-  <span class="dot">•</span>
-  <span>{{ page.tags | join: ", " }}</span>
-</div>
-
-
 ## The signal
 Most teams do not fail because they lack data. They fail because they have too many versions of the same truth.
 
