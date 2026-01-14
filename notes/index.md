@@ -5,7 +5,7 @@ title: "Archetype Core Notes"
 
 # Archetype Core Notes
 
-Short field memos on data systems, governance, security, and the decisions that make systems trustworthy.
+<p class="notes-intro">Short field memos on data systems, governance, security, and the decisions that make systems trustworthy.</p>
 
 ## Issues
 
