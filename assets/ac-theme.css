@@ -390,3 +390,47 @@ footer a{color:#cbd5e1}
   color: var(--text-2);
   font-size: .92rem;
 }
+
+/* === Notes system === */
+.notes-wrap {
+  max-width: 920px;
+  margin: 48px auto 96px;
+  padding: 0 24px;
+}
+
+.notes-kicker {
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+}
+
+.notes-title {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+}
+
+.notes-meta {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 28px;
+}
+
+.notes-meta .dot {
+  margin: 0 10px;
+}
+
+.notes-content p {
+  max-width: 70ch;
+}
+
+.notes-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}

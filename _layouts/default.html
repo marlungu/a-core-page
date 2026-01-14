@@ -4,46 +4,41 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>{{ page.title | escape }}</title>
+  <title>{{ page.title }} · Archetype Core</title>
+  <meta name="description" content="{{ page.description | default: 'Designing data, AI, and intelligent systems with clarity and intent.' }}"/>
 
-  <!-- Site-wide theme -->
   <link rel="stylesheet" href="/assets/ac-theme.css">
 </head>
 
 <body>
 
-  <header>
-    <div class="container nav">
-      <a class="brand" href="/" aria-label="Archetype Core">
-        <img src="/assets/logo.png" alt="Archetype Core logo" />
-        <div>
-          <strong>Archetype Core</strong><br/>
-          <span class="tag">The Architecture of Intelligent Systems</span>
-        </div>
-      </a>
+<header>
+  <div class="container nav">
+    <a class="brand" href="/">
+      <strong>Archetype Core</strong>
+      <span class="tag">The Architecture of Intelligent Systems</span>
+    </a>
 
-      <nav class="links">
-        <a href="/learn.html">Learn</a>
-        <a href="/coming-soon.html">Courses</a>
-        <a href="/coming-soon.html">Tools</a>
-        <a href="/about.html">About</a>
-        <a href="/notes/">Notes</a>
-        <a class="btn primary" href="/#subscribe">Join the Blueprint</a>
-      </nav>
-    </div>
-  </header>
+    <nav class="links">
+      <a href="/learn/">Learn</a>
+      <a href="/notes/">Notes</a>
+      <a href="/about/">About</a>
+      <a class="btn primary" href="/#subscribe">Join the Blueprint</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    {{ content }}
-  </main>
+<main>
+  {{ content }}
+</main>
 
-  <footer role="contentinfo">
-    <div class="container" style="text-align:center">
-      <div class="footer-tagline">Archetype Core</div>
-      <div>The Architecture of Intelligent Systems</div>
-      <div class="small">© 2025 • Designed for builders and data engineers.</div>
-    </div>
-  </footer>
+<footer>
+  <div class="container" style="text-align:center">
+    <div class="footer-tagline">Archetype Core</div>
+    <div>The Architecture of Intelligent Systems</div>
+    <div class="small">© 2026 · Designed for builders and architects.</div>
+  </div>
+</footer>
 
 </body>
 </html>
