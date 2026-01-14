@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Issue 001: Centralize your truth before you scale"
+date: 2026-01-14
+tags: [governance, data-engineering, workflows]
+---
+
 
 # {{ page.title }}
 
@@ -7,12 +14,6 @@
   <span>{{ page.tags | join: ", " }}</span>
 </div>
 
----
-layout: default
-title: "Issue 001: Centralize your truth before you scale"
-date: 2026-01-14
-tags: [governance, data-engineering, workflows]
----
 
 ## The signal
 Most teams do not fail because they lack data. They fail because they have too many versions of the same truth.
