@@ -277,7 +277,8 @@ footer{
    ========================= */
 .notes-wrap{
   max-width:920px;
-  margin:32px auto 96px;
+  /* margin:32px auto 96px; */
+  margin:32px auto 64px;
   padding:0 24px;
 }
 
